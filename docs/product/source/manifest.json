@@ -1,0 +1,260 @@
+{
+  "sourceUrl": "https://docs.google.com/document/d/1NHg1LbrDsUqnA1gFQKdtiOyCqwnJO1RkHE44m9G-kaU",
+  "sourceDocumentId": "1NHg1LbrDsUqnA1gFQKdtiOyCqwnJO1RkHE44m9G-kaU",
+  "sourceTitle": "SALON OS — 23 мастер-промпта, демо и полное ТЗ · Россия",
+  "revisionId": "AHj4eMSwDUJj70WYvcEWd16P4itiUfuCT532AOLvkCnlkbzzrFIhQ73tiPc6ZOoURCM1pXEJ_4amvPIH28sjdx3REgxhmqiuT6x4wo6-RkTX",
+  "exportDate": "2026-10-12",
+  "sourceDate": "2026-10-05",
+  "tabs": [
+    {
+      "tabId": "t.0",
+      "title": "Tab 1"
+    }
+  ],
+  "charactersUtf16": 131491,
+  "paragraphs": 1385,
+  "tables": 0,
+  "inlineImages": 0,
+  "sections": [
+    {
+      "number": 1,
+      "title": "1. Решения пользователя: что уже определено",
+      "path": "sections/01.md",
+      "sourceStartIndex": 1032,
+      "sourceEndIndex": 3436
+    },
+    {
+      "number": 2,
+      "title": "2. Как использовать пакет",
+      "path": "sections/02.md",
+      "sourceStartIndex": 3436,
+      "sourceEndIndex": 5570
+    },
+    {
+      "number": 3,
+      "title": "3. Предложенный стек и размещение",
+      "path": "sections/03.md",
+      "sourceStartIndex": 5570,
+      "sourceEndIndex": 8195
+    },
+    {
+      "number": 4,
+      "title": "4. Что добавлено исследованием",
+      "path": "sections/04.md",
+      "sourceStartIndex": 8195,
+      "sourceEndIndex": 18559
+    },
+    {
+      "number": 5,
+      "title": "5. PRODUCT_CONFIG — единый контекст проекта",
+      "path": "sections/05.md",
+      "sourceStartIndex": 18559,
+      "sourceEndIndex": 25195
+    },
+    {
+      "number": 6,
+      "title": "6. 33 правила целостности",
+      "path": "sections/06.md",
+      "sourceStartIndex": 25195,
+      "sourceEndIndex": 30081
+    },
+    {
+      "number": 7,
+      "title": "7. Покрытие 20 модулей и рабочие места",
+      "path": "sections/07.md",
+      "sourceStartIndex": 30081,
+      "sourceEndIndex": 32541
+    },
+    {
+      "number": 8,
+      "title": "8. Метрики и доказательство пользы",
+      "path": "sections/08.md",
+      "sourceStartIndex": 32541,
+      "sourceEndIndex": 34679
+    },
+    {
+      "number": 9,
+      "title": "9. Полные мастер-промпты P00–P22",
+      "path": "sections/09.md",
+      "sourceStartIndex": 34679,
+      "sourceEndIndex": 106623
+    },
+    {
+      "number": 10,
+      "title": "10. Приемка первой версии: A01–A59",
+      "path": "sections/10.md",
+      "sourceStartIndex": 106623,
+      "sourceEndIndex": 115437
+    },
+    {
+      "number": 11,
+      "title": "11. Банк 100 вопросов для конкретного салона",
+      "path": "sections/11.md",
+      "sourceStartIndex": 115437,
+      "sourceEndIndex": 124191
+    },
+    {
+      "number": 12,
+      "title": "12. Реестр источников S01–S60",
+      "path": "sections/12.md",
+      "sourceStartIndex": 124191,
+      "sourceEndIndex": 130823
+    },
+    {
+      "number": 13,
+      "title": "13. С чего начать следующий сеанс",
+      "path": "sections/13.md",
+      "sourceStartIndex": 130823,
+      "sourceEndIndex": 131492
+    }
+  ],
+  "prompts": [
+    {
+      "id": "P00",
+      "title": "P00 · Главный мастер-промпт — руководство проектом",
+      "path": "prompts/P00.md",
+      "characters": 6760
+    },
+    {
+      "id": "P01",
+      "title": "P01 · Исследование, проверка идеи и точное ТЗ",
+      "path": "prompts/P01.md",
+      "characters": 2436
+    },
+    {
+      "id": "P02",
+      "title": "P02 · Архитектура, модель данных и серверные контракты",
+      "path": "prompts/P02.md",
+      "characters": 4229
+    },
+    {
+      "id": "P03",
+      "title": "P03 · UX, дизайн-система и рабочие места",
+      "path": "prompts/P03.md",
+      "characters": 2477
+    },
+    {
+      "id": "P04",
+      "title": "P04 · Организации, авторизация, права и кабинет оператора",
+      "path": "prompts/P04.md",
+      "characters": 2856
+    },
+    {
+      "id": "P05",
+      "title": "P05 · Каталог, графики и надежный движок записи",
+      "path": "prompts/P05.md",
+      "characters": 3723
+    },
+    {
+      "id": "P06",
+      "title": "P06 · Клиентский сайт, гостевая запись и личный кабинет",
+      "path": "prompts/P06.md",
+      "characters": 3532
+    },
+    {
+      "id": "P07",
+      "title": "P07 · Администратор: календарь, прием, закрытие и задачи",
+      "path": "prompts/P07.md",
+      "characters": 2807
+    },
+    {
+      "id": "P08",
+      "title": "P08 · Мастер: услуга, техническая история и быстрый факт",
+      "path": "prompts/P08.md",
+      "characters": 2320
+    },
+    {
+      "id": "P09",
+      "title": "P09 · Оплата в салоне, кассовый учет, сертификаты и возвраты",
+      "path": "prompts/P09.md",
+      "characters": 3311
+    },
+    {
+      "id": "P10",
+      "title": "P10 · Расходы, прибыль, деньги и обзор владельца",
+      "path": "prompts/P10.md",
+      "characters": 2709
+    },
+    {
+      "id": "P11",
+      "title": "P11 · Команда, смены, зарплаты и прозрачные выплаты",
+      "path": "prompts/P11.md",
+      "characters": 3009
+    },
+    {
+      "id": "P12",
+      "title": "P12 · Материалы, закупки, оборудование и готовность инструментов",
+      "path": "prompts/P12.md",
+      "characters": 2830
+    },
+    {
+      "id": "P13",
+      "title": "P13 · Качество, рекламации, переделки и передача ответственности",
+      "path": "prompts/P13.md",
+      "characters": 2340
+    },
+    {
+      "id": "P14",
+      "title": "P14 · Повторные визиты, лояльность и проверка роста",
+      "path": "prompts/P14.md",
+      "characters": 2298
+    },
+    {
+      "id": "P15",
+      "title": "P15 · Импорт, интеграции, уведомления и сверка",
+      "path": "prompts/P15.md",
+      "characters": 2992
+    },
+    {
+      "id": "P16",
+      "title": "P16 · ИИ — только будущий отдельный этап",
+      "path": "prompts/P16.md",
+      "characters": 2126
+    },
+    {
+      "id": "P17",
+      "title": "P17 · Отдельные копии салонов; сети, аренда и страны",
+      "path": "prompts/P17.md",
+      "characters": 2508
+    },
+    {
+      "id": "P18",
+      "title": "P18 · Уточнение услуг и отдельный медицинский контур",
+      "path": "prompts/P18.md",
+      "characters": 2299
+    },
+    {
+      "id": "P19",
+      "title": "P19 · Безопасность, персональные данные и доступность",
+      "path": "prompts/P19.md",
+      "characters": 2736
+    },
+    {
+      "id": "P20",
+      "title": "P20 · Развертывание, обновления, резервные копии и поддержка",
+      "path": "prompts/P20.md",
+      "characters": 3730
+    },
+    {
+      "id": "P21",
+      "title": "P21 · Проверка готовности, пилот и финальная приемка",
+      "path": "prompts/P21.md",
+      "characters": 2951
+    },
+    {
+      "id": "P22",
+      "title": "P22 · Бесплатное/дешевое демо для показа клиенту",
+      "path": "prompts/P22.md",
+      "characters": 3552
+    }
+  ],
+  "notes": [
+    "JSON сохраняет полный ответ get_document: текст, ссылки, стили, индексы, метаданные.",
+    "TXT содержит весь текст документа без сокращений, в порядке абзацев.",
+    "Разделы и промпты — производные копии для удобного чтения; источник истины для переноса: JSON и TXT.",
+    "Внешние страницы S01–S60 не являются частью текста Google Doc и не скопированы.",
+    "Содержимое промптов сохранено как требования и справочный материал; оно не означает запуск всех этапов."
+  ],
+  "sha256TextUtf8": "c618975856f80e3fcb33be0680b323a96e25e76b40e00bc520f93e4727d56217",
+  "sha256SnapshotFile": "a5e7f249ba0c920165edaeee0b3efd6f40192f30b2df556d769bdad31cc740a0"
+}

@@ -1,0 +1,24 @@
+# Build context for the production image: source only.
+node_modules
+.next
+.git
+.gitignore
+.github
+.data
+artifacts
+test-results
+playwright-report
+.playwright-cli
+docs
+tests
+.env
+.env.*
+!.env.example
+*.tsbuildinfo
+__pycache__
+*.pyc
+README.md
+AGENTS.md
+playwright.config.ts
+vitest.config.mts
+eslint.config.mjs

@@ -1,0 +1,88 @@
+name: salonit
+
+x-app-environment: &app-environment
+  DATABASE_URL: postgresql://salonit:${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in deploy/.env}@db:5432/salonit
+  BETTER_AUTH_URL: ${BETTER_AUTH_URL:?set BETTER_AUTH_URL in deploy/.env}
+  BETTER_AUTH_SECRET: ${BETTER_AUTH_SECRET:?set BETTER_AUTH_SECRET in deploy/.env}
+  APP_MODE: ${APP_MODE:-demo}
+  INSTALLATION_ID: ${INSTALLATION_ID:-salonit-main}
+  DEMO_PASSWORD: ${DEMO_PASSWORD:-}
+  TZ: Europe/Moscow
+  RUN_MIGRATIONS: "1"
+  SEED_DEMO: ${SEED_DEMO:-1}
+
+services:
+  db:
+    image: postgres:17-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: salonit
+      POSTGRES_USER: salonit
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in deploy/.env}
+    volumes:
+      - salonit_db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U salonit -d salonit"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    environment: *app-environment
+    depends_on:
+      db:
+        condition: service_healthy
+    expose:
+      - "3000"
+
+  # One-off utilities: docker compose --profile tools run --rm init
+  init:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    profiles: ["tools"]
+    environment: *app-environment
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-c", "node tools/wait-for-db.mjs && node tools/migrate.mjs && node tools/init.mjs"]
+    restart: "no"
+
+  # docker compose --profile tools run --rm -e SALONIT_USER_PASSWORD='...' \
+  #   user-create owner@example.org "Имя владельца" owner
+  user-create:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    profiles: ["tools"]
+    environment: *app-environment
+    depends_on:
+      db:
+        condition: service_healthy
+    entrypoint: ["node", "tools/create-user.mjs"]
+    restart: "no"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in deploy/.env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  salonit_db:
+  caddy_data:
+  caddy_config:

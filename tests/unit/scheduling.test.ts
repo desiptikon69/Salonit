@@ -1,0 +1,20 @@
+import { describe,it,expect } from "vitest";
+import { planVisit, overlaps } from "../../src/domain/scheduling";
+import type { Service, Staff, Resource } from "../../src/lib/contracts";
+const base:Pick<Service,"category"|"description"|"durationMinutes"|"bufferMinutes"|"priceMinor"|"active"|"norms">={category:"Ногти",description:"",durationMinutes:60,bufferMinutes:10,priceMinor:100000,active:true,norms:[]};
+const services:Service[]=[{...base,id:"hands",name:"Маникюр",skill:"hands",resourceType:"nail-chair"},{...base,id:"feet",name:"Педикюр",skill:"feet",resourceType:"nail-chair"}];
+const staff:Staff[]=[{id:"m1",name:"Анна",title:"",initials:"А",color:"",skills:["hands"],commissionBps:4000,fixedMinor:0,guaranteeMinor:0,guaranteeScope:"total",active:true,workStart:"09:00",workEnd:"21:00"},{id:"m2",name:"Юлия",title:"",initials:"Ю",color:"",skills:["feet"],commissionBps:4000,fixedMinor:0,guaranteeMinor:0,guaranteeScope:"total",active:true,workStart:"09:00",workEnd:"21:00"}];
+const resources:Resource[]=[{id:"chair",name:"Кресло",type:"nail-chair",ready:true,status:"ready"},{id:"hands-tool",name:"Набор",type:"tools-hands",ready:true,status:"ready"},{id:"feet-tool",name:"Набор",type:"tools-feet",ready:true,status:"ready"}];
+const input={services,staff,resources,startAt:"2026-10-20T09:00:00.000Z",mode:"parallel" as const,busy:[]};
+describe("resource scheduling",()=>{
+ it("backtracks when a multi-skilled first candidate is needed by another parallel service",()=>{const people=[{...staff[0],id:"multi",skills:["hands","feet"]},{...staff[1],id:"hands-only",skills:["hands"]}];const p=planVisit({...input,staff:people});expect(p?.items.map(i=>i.staffId)).toEqual(["hands-only","multi"]);});
+ it("selects a chair free for the longer parallel procedure",()=>{const longer=[services[0],{...services[1],durationMinutes:90}];const p=planVisit({...input,services:longer,resources:[...resources,{...resources[0],id:"chair2"}],busy:[{resourceKey:"resource:chair",startAt:"2026-10-20T10:15:00.000Z",endAt:"2026-10-20T12:00:00.000Z"}]});expect(p?.allocations.find(a=>a.resourceKey==="resource:chair2")).toBeDefined();});
+ it("keeps selected specialist and automatically finds the parallel companion",()=>{const p=planVisit({...input,staffId:"m1"});expect(p?.items.map(i=>i.staffId)).toEqual(["m1","m2"]);});
+ it("allows half-open adjacent intervals",()=>expect(overlaps(0,60,60,120)).toBe(false));
+ it("shares one chair but reserves two distinct tools and specialists",()=>{const p=planVisit(input);expect(p?.items).toHaveLength(2);expect(p?.allocations.filter(a=>a.resourceKey==="resource:chair")).toHaveLength(1);expect(p?.allocations.filter(a=>a.resourceKey.includes("tool"))).toHaveLength(2);});
+ it("rejects unavailable required tool atomically",()=>expect(planVisit({...input,resources:resources.filter(r=>r.id!=="feet-tool")})).toBeNull());
+ it("refuses the second visitor during the preparation buffer",()=>{const p=planVisit(input)!;expect(planVisit({...input,startAt:"2026-10-20T10:05:00.000Z",busy:p.allocations})).toBeNull();});
+ it("does not overlap two procedures performed by one specialist",()=>expect(planVisit({...input,staff:[{...staff[0],skills:["hands","feet"]}]})).toBeNull());
+ it("refuses non-compatible parallel services",()=>expect(planVisit({...input,services:[services[0],{...services[1],skill:"hair",resourceType:"hair-chair"}]})).toBeNull());
+ it("releases hands but not chair during processing",()=>{const hair={...services[0],skill:"hair",resourceType:"hair-chair",durationMinutes:90,stages:[{name:"Нанесение",durationMinutes:30,needsStaff:true},{name:"Выдержка",durationMinutes:30,needsStaff:false},{name:"Завершение",durationMinutes:30,needsStaff:true}]};const p=planVisit({...input,mode:"sequential",services:[hair],staff:[{...staff[0],skills:["hair"]}],resources:[{...resources[0],type:"hair-chair"}]});expect(p?.allocations.filter(a=>a.resourceKey==="staff:m1")).toHaveLength(2);expect(p?.allocations.find(a=>a.resourceKey==="resource:chair")?.endAt).toBe("2026-10-20T10:40:00.000Z");});
+});

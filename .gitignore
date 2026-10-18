@@ -1,0 +1,17 @@
+node_modules/
+.next/
+.env
+.env.*
+!.env.example
+.data/
+backups/
+artifacts/verification/
+test-results/
+playwright-report/
+*.tsbuildinfo
+__pycache__/
+*.pyc
+npm-debug.log*
+.DS_Store
+.playwright-cli/
+artifacts/

@@ -1,0 +1,342 @@
+{
+  "date": "2026-10-12",
+  "scope": "Source transfer, structural inventory and documentation links only. No application tests were run.",
+  "sourceDocumentId": "1NHg1LbrDsUqnA1gFQKdtiOyCqwnJO1RkHE44m9G-kaU",
+  "sourceRevisionId": "AHj4eMSwDUJj70WYvcEWd16P4itiUfuCT532AOLvkCnlkbzzrFIhQ73tiPc6ZOoURCM1pXEJ_4amvPIH28sjdx3REgxhmqiuT6x4wo6-RkTX",
+  "counts": {
+    "prompt_begin": 23,
+    "prompt_end": 23,
+    "module": 20,
+    "invariant": 33,
+    "question": 100,
+    "acceptance": 59,
+    "source": 60,
+    "research": 18,
+    "future_acceptance": 3
+  },
+  "checks": [
+    {
+      "name": "full_text_matches_native_snapshot",
+      "passed": true,
+      "details": {
+        "charactersUtf16": 131491
+      }
+    },
+    {
+      "name": "full_text_sha256_matches_manifest",
+      "passed": true,
+      "details": "c618975856f80e3fcb33be0680b323a96e25e76b40e00bc520f93e4727d56217"
+    },
+    {
+      "name": "snapshot_sha256_matches_manifest",
+      "passed": true,
+      "details": "a5e7f249ba0c920165edaeee0b3efd6f40192f30b2df556d769bdad31cc740a0"
+    },
+    {
+      "name": "section_01",
+      "passed": true,
+      "details": "1. Решения пользователя: что уже определено"
+    },
+    {
+      "name": "section_02",
+      "passed": true,
+      "details": "2. Как использовать пакет"
+    },
+    {
+      "name": "section_03",
+      "passed": true,
+      "details": "3. Предложенный стек и размещение"
+    },
+    {
+      "name": "section_04",
+      "passed": true,
+      "details": "4. Что добавлено исследованием"
+    },
+    {
+      "name": "section_05",
+      "passed": true,
+      "details": "5. PRODUCT_CONFIG — единый контекст проекта"
+    },
+    {
+      "name": "section_06",
+      "passed": true,
+      "details": "6. 33 правила целостности"
+    },
+    {
+      "name": "section_07",
+      "passed": true,
+      "details": "7. Покрытие 20 модулей и рабочие места"
+    },
+    {
+      "name": "section_08",
+      "passed": true,
+      "details": "8. Метрики и доказательство пользы"
+    },
+    {
+      "name": "section_09",
+      "passed": true,
+      "details": "9. Полные мастер-промпты P00–P22"
+    },
+    {
+      "name": "section_10",
+      "passed": true,
+      "details": "10. Приемка первой версии: A01–A59"
+    },
+    {
+      "name": "section_11",
+      "passed": true,
+      "details": "11. Банк 100 вопросов для конкретного салона"
+    },
+    {
+      "name": "section_12",
+      "passed": true,
+      "details": "12. Реестр источников S01–S60"
+    },
+    {
+      "name": "section_13",
+      "passed": true,
+      "details": "13. С чего начать следующий сеанс"
+    },
+    {
+      "name": "prompt_P00",
+      "passed": true,
+      "details": "P00"
+    },
+    {
+      "name": "prompt_P01",
+      "passed": true,
+      "details": "P01"
+    },
+    {
+      "name": "prompt_P02",
+      "passed": true,
+      "details": "P02"
+    },
+    {
+      "name": "prompt_P03",
+      "passed": true,
+      "details": "P03"
+    },
+    {
+      "name": "prompt_P04",
+      "passed": true,
+      "details": "P04"
+    },
+    {
+      "name": "prompt_P05",
+      "passed": true,
+      "details": "P05"
+    },
+    {
+      "name": "prompt_P06",
+      "passed": true,
+      "details": "P06"
+    },
+    {
+      "name": "prompt_P07",
+      "passed": true,
+      "details": "P07"
+    },
+    {
+      "name": "prompt_P08",
+      "passed": true,
+      "details": "P08"
+    },
+    {
+      "name": "prompt_P09",
+      "passed": true,
+      "details": "P09"
+    },
+    {
+      "name": "prompt_P10",
+      "passed": true,
+      "details": "P10"
+    },
+    {
+      "name": "prompt_P11",
+      "passed": true,
+      "details": "P11"
+    },
+    {
+      "name": "prompt_P12",
+      "passed": true,
+      "details": "P12"
+    },
+    {
+      "name": "prompt_P13",
+      "passed": true,
+      "details": "P13"
+    },
+    {
+      "name": "prompt_P14",
+      "passed": true,
+      "details": "P14"
+    },
+    {
+      "name": "prompt_P15",
+      "passed": true,
+      "details": "P15"
+    },
+    {
+      "name": "prompt_P16",
+      "passed": true,
+      "details": "P16"
+    },
+    {
+      "name": "prompt_P17",
+      "passed": true,
+      "details": "P17"
+    },
+    {
+      "name": "prompt_P18",
+      "passed": true,
+      "details": "P18"
+    },
+    {
+      "name": "prompt_P19",
+      "passed": true,
+      "details": "P19"
+    },
+    {
+      "name": "prompt_P20",
+      "passed": true,
+      "details": "P20"
+    },
+    {
+      "name": "prompt_P21",
+      "passed": true,
+      "details": "P21"
+    },
+    {
+      "name": "prompt_P22",
+      "passed": true,
+      "details": "P22"
+    },
+    {
+      "name": "product_config_values_match",
+      "passed": true
+    },
+    {
+      "name": "inventory_prompt_begin",
+      "passed": true,
+      "details": {
+        "expected": 23,
+        "actual": 23,
+        "unique": 23
+      }
+    },
+    {
+      "name": "inventory_prompt_end",
+      "passed": true,
+      "details": {
+        "expected": 23,
+        "actual": 23,
+        "unique": 23
+      }
+    },
+    {
+      "name": "inventory_module",
+      "passed": true,
+      "details": {
+        "expected": 20,
+        "actual": 20,
+        "unique": 20
+      }
+    },
+    {
+      "name": "inventory_invariant",
+      "passed": true,
+      "details": {
+        "expected": 33,
+        "actual": 33,
+        "unique": 33
+      }
+    },
+    {
+      "name": "inventory_question",
+      "passed": true,
+      "details": {
+        "expected": 100,
+        "actual": 100,
+        "unique": 100
+      }
+    },
+    {
+      "name": "inventory_acceptance",
+      "passed": true,
+      "details": {
+        "expected": 59,
+        "actual": 59,
+        "unique": 59
+      }
+    },
+    {
+      "name": "inventory_source",
+      "passed": true,
+      "details": {
+        "section": 12,
+        "expected": 60,
+        "actual": 60,
+        "unique": 60
+      }
+    },
+    {
+      "name": "research_sequence",
+      "passed": true,
+      "details": [
+        "F01",
+        "F02",
+        "F03",
+        "F04",
+        "F05",
+        "F06",
+        "F07",
+        "F08",
+        "F09",
+        "F10",
+        "F11",
+        "F12",
+        "F13",
+        "F14",
+        "F15",
+        "F16",
+        "F17",
+        "F18"
+      ]
+    },
+    {
+      "name": "future_sequence",
+      "passed": true,
+      "details": [
+        "F01",
+        "F02",
+        "F03"
+      ]
+    },
+    {
+      "name": "all_sources_have_urls",
+      "passed": true,
+      "details": {
+        "count": 60,
+        "externalUrlsFetched": false
+      }
+    },
+    {
+      "name": "markdown_local_links_exist",
+      "passed": true,
+      "details": {
+        "checked": 63,
+        "broken": []
+      }
+    },
+    {
+      "name": "analysis_reports_exist",
+      "passed": true
+    }
+  ],
+  "allPassed": true,
+  "applicationImplemented": false,
+  "applicationTestsRun": false,
+  "externalReferencesVerified": false,
+  "projectFileCount": 49
+}

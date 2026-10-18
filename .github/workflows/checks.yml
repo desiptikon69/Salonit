@@ -1,0 +1,58 @@
+name: SalonIt checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      DATABASE_URL: postgresql://salonit:ci-local-only@127.0.0.1:5432/salonit
+      TEST_DATABASE_URL: postgresql://salonit:ci-local-only@127.0.0.1:5432/salonit_test
+      APP_MODE: demo
+      BETTER_AUTH_URL: http://localhost:3000
+      BETTER_AUTH_SECRET: ci-only-not-a-deployment-secret-64-characters-12345678901234567890
+      DEMO_PASSWORD: ci-only-demo-password-1234567890
+      INSTALLATION_ID: salonit-ci
+      TZ: Europe/Moscow
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7, verified 2026-10-14
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7, verified 2026-10-14
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Start native PostgreSQL
+        run: |
+          sudo systemctl start postgresql
+          sudo -u postgres psql -v ON_ERROR_STOP=1 -c "CREATE ROLE salonit LOGIN PASSWORD 'ci-local-only';"
+          sudo -u postgres createdb -O salonit salonit
+          sudo -u postgres createdb -O salonit salonit_test
+          sudo -u postgres psql -d salonit -v ON_ERROR_STOP=1 -c 'CREATE EXTENSION IF NOT EXISTS btree_gist;'
+          sudo -u postgres psql -d salonit_test -v ON_ERROR_STOP=1 -c 'CREATE EXTENSION IF NOT EXISTS btree_gist;'
+      - run: npm run setup
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm test
+      - run: npx tsx scripts/check-integration.ts
+      - run: npm run build
+      - name: Browser acceptance
+        run: |
+          npx playwright install --with-deps chrome
+          npm run dev > /tmp/salonit-web.log 2>&1 &
+          WEB_PID=$!
+          trap 'kill "$WEB_PID" 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:3000/api/health >/dev/null; then break; fi
+            sleep 2
+          done
+          npm run test:e2e
+      - run: npm audit --omit=dev --audit-level=high

@@ -1,0 +1,19 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: salonit
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-salonit_local}
+      POSTGRES_DB: salonit
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - salonit_pg:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U salonit"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  salonit_pg:
+

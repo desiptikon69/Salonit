@@ -1,0 +1,7 @@
+import {getWorkspace} from "@/server/queries";
+import {actorFor,route} from "@/server/http";
+import {AppError} from "@/server/errors";
+import {authorize} from "@/server/permissions";
+const fields={clients:["id","name","phone","email"],visits:["reference","clientName","startAt","status","totalMinor","paidMinor"],materials:["name","unit","stockMilli","minStockMilli","costMinor"],expenses:["name","category","amountMinor","date","paid"],accruals:["staffName","serviceName","amountMinor","status","date"]} as const;
+function cell(value:unknown){let s=String(value??"");if(/^[=+@\-\t\r]/.test(s))s="'"+s;return '"'+s.replaceAll('"','""')+'"';}
+export const GET=route(async req=>{const actor=await actorFor(req);const entity=new URL(req.url).searchParams.get("entity") as keyof typeof fields;if(!fields[entity])throw new AppError(400,"Неизвестный экспорт");authorize(actor,entity==="materials"?["owner","stock"]:entity==="clients"||entity==="visits"?["owner","admin"]:["owner","accountant"]);const data=await getWorkspace(actor);const selected=data[entity] as unknown as Record<string,unknown>[];const csv="\uFEFF"+[fields[entity].map(cell).join(";"),...selected.map(row=>fields[entity].map(f=>cell(row[f])).join(";"))].join("\r\n");return new Response(csv,{headers:{"Content-Type":"text/csv; charset=utf-8","Content-Disposition":`attachment; filename="salonit-${entity}.csv"`,"Cache-Control":"no-store"}});});

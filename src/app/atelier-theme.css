@@ -1,0 +1,219 @@
+/* Experimental atelier skin. Kept separate so the previous edition can be restored. */
+.studio-app.pub-root {
+  --pub-ink: #eeece4;
+  --pub-muted: #aaa99f;
+  --pub-green: #ff866b;
+  --pub-border: #3a3b35;
+  --pub-canvas: #171817;
+  --atelier-surface: #222320;
+  --atelier-lavender: #c6b4ef;
+  background: var(--pub-canvas);
+  color: var(--pub-ink);
+  color-scheme: dark;
+}
+.studio-app :focus-visible { outline-color: var(--atelier-lavender); }
+.studio-app .studio-rail { background: #171817; border-color: #3a3b35; }
+.studio-app .studio-symbol { color: #eeece4; }
+.studio-app .studio-symbol span { color: #ff866b; }
+.studio-app .studio-rail nav a {
+  color: #aaa99f;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  font-size: 11px;
+  line-height: 1.25;
+  transition: color .25s, background .25s, border-color .25s, box-shadow .25s;
+}
+.studio-app .studio-rail nav a:hover { color: #eeece4; background: #282924; border-color: #44453d; }
+.studio-app .studio-rail nav a.is-active {
+  color: #ff9e87;
+  background: #302621;
+  border-color: #634236;
+  box-shadow: inset 0 0 18px #ff866b08, 0 0 20px #ff866b06;
+}
+.studio-app .studio-rail-caption { color: #aaa99f; font-size: 11px; letter-spacing: .14em; }
+.studio-app .studio-team-link { border-color: #484940; color: #eeece4; }
+.studio-app .studio-team-link:hover { background: #c6b4ef; color: #171817; }
+.studio-app .studio-topbar { border-color: #3a3b35; }
+.studio-app .studio-wordmark { color: #eeece4; }
+.studio-app .studio-wordmark > span:first-child { color: #ff866b; }
+.studio-app .studio-topbar-caption { font-size: 11px; color: #aaa99f; letter-spacing: .1em; }
+.studio-app .studio-demo-label { color: #aaa99f; font-size: 11px; }
+.studio-app .studio-demo-label i { color: #c6b4ef; box-shadow: 0 0 12px #c6b4ef60; }
+.studio-app .studio-profile-link { color: #eeece4; border-color: #484940; background: #222320; }
+.studio-app .studio-profile-link:hover { color: #171817; background: #c6b4ef; border-color: #c6b4ef; }
+.studio-app .studio-footer { color: #aaa99f; border-color: #3a3b35; font-size: 11px; }
+.studio-app .studio-footer small { font-size: 11px; }
+.studio-app .studio-skip { color: #171817; background: #ff866b; }
+
+/* Shared flow controls stay native, with visible keyboard and selection states. */
+.studio-app .pub-button { background: #ff866b; border-color: #ff866b; color: #201a16 !important; border-radius: 10px; }
+.studio-app .pub-button:hover { background: #ffa38e; border-color: #ffa38e; }
+.studio-app .pub-button-ghost { background: transparent; color: #eeece4 !important; border-color: #57584e; }
+.studio-app .pub-button-ghost:hover { background: #33342e; border-color: #85867a; }
+.studio-app .pub-button-danger { background: #773d35; border-color: #ae6155; color: #fff0ec !important; }
+.studio-app .pub-button-danger:hover { background: #90483d; border-color: #dd8e7f; }
+.studio-app .pub-inline-button, .studio-app .pub-text-link { color: #ff9e87; }
+.studio-app .pub-text-link:hover { color: #c6b4ef; }
+.studio-app .pub-eyebrow { color: #aaa99f; }
+.studio-app .pub-notice { color: #ffb6a5; background: #352722; border-color: #70463b; border-radius: 10px; }
+.studio-app .pub-notice-info { color: #dacbf6; background: #2d2838; border-color: #584a6e; }
+.studio-app .pub-notice-success { color: #d1e3ba; background: #293126; border-color: #536146; }
+.studio-app .pub-spinner { border-color: #484940; border-top-color: #ff866b; }
+.studio-app .pub-empty { color: #aaa99f; background: #222320; border-color: #484940; }
+
+.studio-app .book-page, .studio-app .portal-page, .studio-app .portal-login {
+  --flow-ink: #eeece4;
+  --flow-paper: #171817;
+  --flow-line: #3a3b35;
+  --flow-acid: #ff866b;
+  --flow-lilac: #c6b4ef;
+  --flow-muted: #aaa99f;
+  color: #eeece4;
+}
+.studio-app .book-page-heading h1, .studio-app .portal-heading h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  letter-spacing: -.055em;
+}
+.studio-app .book-page .pub-eyebrow, .studio-app .portal-page .pub-eyebrow, .studio-app .portal-login .pub-eyebrow { font-size: 11px; }
+.studio-app .book-stage-mark > span { color: #c6b4ef; font-weight: 400; }
+.studio-app .book-stage-mark small { font-size: 11px; }
+.studio-app .book-progress { background: #222320; border-radius: 12px; color: #aaa99f; gap: 5px; }
+.studio-app .book-progress li { font-size: 11px; border-radius: 8px; }
+.studio-app .book-progress li > span { font-size: 11px; }
+.studio-app .book-progress .book-current { background: #ff866b; color: #201a16; box-shadow: 0 0 22px #ff866b16; }
+.studio-app .book-progress .book-current > span { color: #201a16; }
+.studio-app .book-progress .book-done, .studio-app .book-progress .book-done > span { color: #d1c5e7; }
+.studio-app .book-panel, .studio-app .book-success { background: #222320; border-color: #3a3b35; border-radius: 12px; }
+.studio-app .book-selection-count { color: #c6b4ef; font-size: 11px; border-color: #554a65; border-radius: 7px; background: #2d2835; }
+.studio-app .book-bundle-picks button { color: #e9e1f6; background: #302b38; border-color: #51465f; border-radius: 10px; }
+.studio-app .book-bundle-picks button:nth-child(3n) { color: #f0dfd5; background: #342a25; border-color: #574236; }
+.studio-app .book-bundle-picks button:hover { color: #f3edf9; background: #40354c; border-color: #9b83ba; }
+.studio-app .book-bundle-picks button[aria-pressed=true] { border-color: #ff866b; box-shadow: inset 0 0 0 1px #ff866b; }
+.studio-app .book-bundle-picks button > span, .studio-app .book-bundle-picks small { color: #bdb0cd; font-size: 11px; letter-spacing: .025em; }
+.studio-app .book-bundle-picks button > span svg { color: #d8c7ed; }
+.studio-app .book-category-tabs { scrollbar-color: #57584e transparent; }
+.studio-app .book-category-tabs button { color: #aaa99f; border-color: #484940; font-size: 11px; }
+.studio-app .book-category-tabs button[aria-pressed=true] { color: #201a16; background: #eeece4; border-color: #eeece4; }
+.studio-app .book-category-tabs button:hover { border-color: #a9a99b; }
+.studio-app .book-service-group h2 { font-weight: 450; letter-spacing: -.035em; }
+.studio-app .book-service-group h2 > span { font-size: 11px; }
+.studio-app .book-service-option, .studio-app .book-staff-option, .studio-app .book-slot { background: #222320; border-color: #484940; border-radius: 10px; }
+.studio-app .book-service-option:hover, .studio-app .book-staff-option:hover, .studio-app .book-slot:hover { background: #2d2e28; border-color: #848576; }
+.studio-app .book-option-toggle { border-color: #75766a; color: #c6b4ef; }
+.studio-app .book-page .book-selected, .studio-app .portal-page .book-selected { background: #3a2b25 !important; color: #eeece4; border-color: #ff866b !important; box-shadow: inset 3px 0 0 #ff866b; }
+.studio-app .book-selected .book-option-toggle { background: #ff866b; border-color: #ff866b; color: #201a16; }
+.studio-app .book-selected small { color: #d5b5a8; }
+.studio-app .book-mode { background: #1c1d1a; border-color: #5f6054; border-radius: 10px; }
+.studio-app .book-mode input, .studio-app .book-staff-option > input { accent-color: #ff866b; }
+.studio-app .book-page .book-avatar, .studio-app .portal-page .book-avatar { background: #393042; color: #d8c7ed; border: 1px solid #655475; border-radius: 12px; }
+.studio-app .book-staff-option:nth-child(3n) .book-avatar { background: #393028; color: #e3b8a1; border-color: #6c5040; }
+.studio-app .book-selected .book-avatar { background: #ff866b; color: #201a16; border-color: #ff866b; }
+.studio-app .book-slot small, .studio-app .book-staff-option small, .studio-app .book-service-option small { font-size: 11px; }
+
+/* A paper receipt forms a deliberate light counterpoint to the dark workspace. */
+.studio-app .book-summary { background: #eeece4; color: #24251f; border-radius: 12px; border: 1px solid #eeece4; }
+.studio-app .book-summary h2 { color: #24251f; font-family: Georgia, "Times New Roman", serif; font-weight: 400; }
+.studio-app .book-ticket-top .pub-eyebrow, .studio-app .book-ticket-label { color: #65665b; font-size: 11px; }
+.studio-app .book-ticket-top > span { color: #98533e; }
+.studio-app .book-ticket-label, .studio-app .book-summary-total, .studio-app .book-summary-date, .studio-app .book-summary-note { border-color: #b6b5a7; }
+.studio-app .book-summary-total::before, .studio-app .book-summary-total::after { background: #171817; }
+.studio-app .book-summary > p, .studio-app .book-summary-date, .studio-app .book-summary-note { color: #65665b; }
+.studio-app .book-summary-date strong { color: #24251f; }
+.studio-app .book-summary-note > span { font-size: 11px; }
+.studio-app .book-summary-note .book-ticket-barcode { background: repeating-linear-gradient(90deg,#77796a 0 1px,transparent 1px 4px,#77796a 4px 7px,transparent 7px 9px,#77796a 9px 10px,transparent 10px 13px); }
+.studio-app .book-success-mark { background: #ff866b; color: #201a16; border-radius: 12px; }
+.studio-app .book-page .pub-field input, .studio-app .portal-page .pub-field input, .studio-app .portal-login .pub-field input,
+.studio-app .portal-page .pub-field select, .studio-app .portal-page .pub-field textarea { background: #191a17; border-color: #55564a; color: #eeece4; }
+.studio-app .book-page .pub-field input:focus, .studio-app .portal-page .pub-field input:focus, .studio-app .portal-login .pub-field input:focus,
+.studio-app .portal-page .pub-field select:focus, .studio-app .portal-page .pub-field textarea:focus { background: #25261f; border-color: #c6b4ef; }
+.studio-app .pub-field input::placeholder, .studio-app .pub-field textarea::placeholder { color: #929588; }
+
+.studio-app .portal-overview { border-radius: 12px; background: #222320; }
+.studio-app .portal-overview > div > span, .studio-app .portal-overview > a > span { font-size: 11px; }
+.studio-app .portal-overview > a { background: #ff866b; color: #201a16; }
+.studio-app .portal-overview > a > span { color: #573b30; }
+.studio-app .portal-overview > a:hover { background: #ffa38e; }
+.studio-app .portal-visit { background: #222320; border-radius: 12px; }
+.studio-app .portal-visit-rail { background: #2c2d27; border-color: #57584a; color: #c6b4ef; }
+.studio-app .portal-visit-rail > small, .studio-app .portal-visit-top { font-size: 11px; }
+.studio-app .portal-visit h3 { font-weight: 450; }
+.studio-app .portal-status { font-size: 11px; color: #cdd7b9; background: #353e2b; border-radius: 5px; }
+.studio-app .portal-status-confirmed { color: #ffd2c4; background: #55392d; }
+.studio-app .portal-status-in_progress, .studio-app .portal-status-arrived { color: #ddcdf6; background: #453653; }
+.studio-app .portal-status-cancelled, .studio-app .portal-status-no_show { color: #eabbb1; background: #4a302b; }
+.studio-app .portal-visit-bottom > span, .studio-app .portal-items span { font-size: 11px; }
+.studio-app .portal-actions button, .studio-app .portal-actions > .pub-text-link { color: #eeece4; font-size: 11px; border-color: #57584a; border-radius: 7px; }
+.studio-app .portal-actions button:hover, .studio-app .portal-actions > .pub-text-link:hover { color: #171817; background: #c6b4ef; border-color: #c6b4ef; }
+.studio-app .portal-sidebar > section { border-color: #3a3b35; border-radius: 12px; }
+.studio-app .portal-profile { background: #2d2835; }
+.studio-app .portal-profile p, .studio-app .portal-profile .pub-data-note { color: #c5b8d3; }
+.studio-app .portal-profile .pub-data-note { font-size: 11px; }
+.studio-app .portal-profile .book-avatar { background: #c6b4ef; color: #28232d; border-color: #c6b4ef; }
+.studio-app .portal-certificates { background: #222320; }
+.studio-app .portal-certificate { background: #eeece4; color: #24251f; border-radius: 9px; }
+.studio-app .portal-certificate::after { color: #98533e; }
+.studio-app .portal-certificate > strong { color: #24251f; }
+.studio-app .portal-certificate > span, .studio-app .portal-certificate > code, .studio-app .portal-certificate > small { color: #65665b; font-size: 11px; border-color: #b6b5a7; }
+.studio-app .portal-recommendations { background: #2a2c25; }
+.studio-app .portal-action-form { border-color: #57584a; }
+.studio-app .portal-page .pub-empty { background: #222320; border-color: #57584a; }
+
+/* Entry panel: quiet editorial type, with one restrained moving light field. */
+.studio-app .portal-login-intro { background: #c6b4ef; color: #292331; border: 1px solid #c6b4ef; border-radius: 12px; isolation: isolate; }
+.studio-app .portal-login-intro::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 360px;
+  height: 360px;
+  right: -170px;
+  bottom: -100px;
+  border: 1px solid #78658d55;
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px #78658d0a, 0 0 0 60px #78658d0a, 0 0 0 96px #78658d0a;
+  animation: atelier-halo-arrive 1.2s cubic-bezier(.16,1,.3,1) both;
+}
+.studio-app .portal-login-intro h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.06em; }
+.studio-app .portal-login-intro h1 em { color: #665375; font-weight: 400; font-style: italic; }
+.studio-app .portal-login-intro .pub-eyebrow, .studio-app .portal-login-intro > p, .studio-app .portal-login-intro .pub-data-note { color: #54445f; }
+.studio-app .portal-login-intro .pub-data-note { font-size: 11px; }
+.studio-app .portal-login-emblem { border-color: #8f7aa7; }
+.studio-app .portal-login-emblem > span { background: #c6b4ef; border-color: #8f7aa7; color: #54445f; }
+.studio-app .portal-login-emblem > small { color: #54445f; }
+.studio-app .portal-login-roles { background: #222320; border-color: #3a3b35; border-radius: 12px; }
+.studio-app .portal-login-caption, .studio-app .portal-demo-heading > span { font-size: 11px; }
+.studio-app .portal-role { background: #1b1c19; border-color: #484940; border-radius: 9px; }
+.studio-app .portal-role:hover { background: #302b38; border-color: #8b73a4; color: #eeece4; }
+.studio-app .portal-role-number, .studio-app .portal-role small { color: #aaa99f; font-size: 11px; }
+
+@keyframes atelier-halo-arrive { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: scale(1); } }
+@media (max-width: 850px) {
+  .studio-app .studio-rail nav a { font-size: 11px; }
+}
+@media (max-width: 700px) {
+  .studio-app .book-progress { display: flex; }
+  .studio-app .book-progress li { flex: none; padding: 9px 12px; font-size: 11px; }
+  .studio-app .book-progress li > span { font-size: 11px; }
+  .studio-app .book-navigation { background: #222320; box-shadow: 0 -10px 12px #222320; }
+  .studio-app .book-bundle-picks button > span { font-size: 11px; line-height: 1.4; }
+  .studio-app .book-bundle-picks small, .studio-app .book-category-tabs button { font-size: 11px; }
+  .studio-app .book-selection-count { font-size: 11px; }
+  .studio-app .book-summary > p, .studio-app .book-summary-date { font-size: 11px; }
+  .studio-app .portal-visit-rail { width: 58px; }
+  .studio-app .portal-visit-top { gap: 10px; line-height: 1.5; }
+  .studio-app .portal-login-caption { letter-spacing: .04em; }
+}
+@media (max-width: 620px) {
+  .studio-app .studio-rail { background: #171817f5; border-color: #3a3b35; }
+  .studio-app .studio-rail nav a { font-size: 11px; border-radius: 10px; min-height: 57px; gap: 6px; }
+  .studio-app .studio-rail nav a.is-active { background: #302621; color: #ff9e87; }
+  .studio-app .studio-rail nav a.is-active svg { background: none; box-shadow: none; border-radius: 0; }
+  .studio-app .studio-demo-label { font-size: 11px; }
+  .studio-app .studio-profile-link { border-radius: 12px; }
+  .studio-app .studio-footer { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-app .portal-login-intro::after { animation: none; }
+  .studio-app .studio-rail nav a { transition: none; }
+}
