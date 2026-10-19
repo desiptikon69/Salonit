@@ -3,7 +3,7 @@
 Обновлено 19 октября 2026 года. Это рабочая бесплатная схема для демо-версии:
 **Vercel Hobby** для Next.js и **Neon Free** для PostgreSQL. Платная карта не нужна.
 
-Живая демо-версия: [https://salonit.vercel.app](https://salonit.vercel.app).
+Живая демо-версия: [https://salonit.amosovatanya.ru](https://salonit.amosovatanya.ru).
 
 > **Ограничения бесплатных тарифов.** Vercel Hobby предназначен для личных и
 > некоммерческих проектов. Neon Free даёт 1 ГБ и 100 CU-часов в месяц; после
@@ -14,8 +14,9 @@
 
 ## Что уже сделано
 
-- Проект Vercel: `mraamosov-9659s-projects/salonit`, production-алиас
-  `https://salonit.vercel.app`.
+- Проект Vercel: `mraamosov-9659s-projects/salonit`, основной домен
+  `https://salonit.amosovatanya.ru`; технический алиас `salonit.vercel.app`
+  перенаправляет на него (308).
 - База: Neon Free `salonit-db`, регион Frankfurt (`fra1`), создана через
   Vercel Storage. Переменные `DATABASE_URL` (pooled) и
   `DATABASE_URL_UNPOOLED` подключены к проекту.
@@ -30,7 +31,7 @@
 | --- | --- |
 | `DATABASE_URL` | pooled-строка Neon (создаётся интеграцией) |
 | `DATABASE_URL_UNPOOLED` | прямая строка Neon (для миграций) |
-| `BETTER_AUTH_URL` | `https://salonit.vercel.app` — точный адрес без слэша |
+| `BETTER_AUTH_URL` | `https://salonit.amosovatanya.ru` — точный адрес без слэша |
 | `BETTER_AUTH_SECRET` | случайная строка, `openssl rand -hex 48` |
 | `APP_MODE` | `demo` |
 | `INSTALLATION_ID` | `salonit-main` |
@@ -72,10 +73,10 @@
 
 ## Домен
 
-- `https://salonit.vercel.app` — бесплатный адрес Vercel, уже работает.
-- Можно подключить **`salonit.amosovatanya.ru`**: в Vercel
-  **Settings → Domains** добавить домен, в Timeweb — CNAME `salonit` на
-  `cname.vercel-dns.com`. После проверки DNS Vercel выпустит SSL.
+- Основной домен — **`https://salonit.amosovatanya.ru`**. DNS: CNAME
+  `salonit` → `734ff3a44632f8e3.vercel-dns-017.com`, SSL выпущен Vercel.
+- `https://salonit.vercel.app` — технический алиас Vercel; настроен
+  постоянный редирект (308) на основной домен.
 - Домен `salonit.twc1.net` из панели Timeweb-хостинга использовать нельзя:
   это технический домен, он привязывается только к сайту внутри хостинга.
 - Если меняете основной домен, поменяйте и `BETTER_AUTH_URL`, затем
@@ -83,7 +84,7 @@
 
 ## Установка на телефон
 
-Android/Chrome: откройте `https://salonit.vercel.app`, через несколько секунд
+Android/Chrome: откройте `https://salonit.amosovatanya.ru`, через несколько секунд
 появится подсказка «Установить» (или меню ⋮ → «Установить приложение»).
 iPhone/Safari: «Поделиться» → «На экран „Домой“». После установки сайт
 открывается без адресной строки.
