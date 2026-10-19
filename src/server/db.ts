@@ -3,7 +3,8 @@ import { Pool, type PoolClient, type QueryResultRow } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
 export type SqlClient = Pool | PoolClient;
 const globalDb = globalThis as unknown as { salonitPool?: Pool };
-export const pool = globalDb.salonitPool ?? new Pool({ connectionString: process.env.DATABASE_URL, max: 20 });
+// Serverless functions need fewer sockets per instance; Docker keeps a full pool.
+export const pool = globalDb.salonitPool ?? new Pool({ connectionString: process.env.DATABASE_URL, max: process.env.VERCEL ? 5 : 20 });
 if (process.env.NODE_ENV !== "production") globalDb.salonitPool = pool;
 export const db = drizzle(pool);
 export async function rows<T = Record<string, unknown>>(text: string, values: unknown[] = [], client: SqlClient = pool): Promise<T[]> {

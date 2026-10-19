@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 const config: NextConfig = {
-  output: "standalone",
+  // Vercel builds its own serverless output; standalone is for Docker/self-hosting.
+  output: process.env.VERCEL ? undefined : "standalone",
   poweredByHeader: false,
   experimental: { optimizePackageImports: ["lucide-react"] },
   async headers() {
