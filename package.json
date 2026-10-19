@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "db:migrate": "tsx scripts/migrate.ts",
     "db:seed": "tsx scripts/seed.ts",
+    "db:seed:free": "tsx scripts/seed-free.ts",
     "db:reset": "tsx scripts/reset.ts",
     "worker": "tsx scripts/worker.ts",
     "setup": "npm run db:migrate && npm run db:seed",

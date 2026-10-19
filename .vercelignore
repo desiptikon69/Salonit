@@ -1,0 +1,27 @@
+# Vercel upload context: source only. The local demo database, browser
+# profiles, build output and secrets must never leave this machine.
+node_modules
+.next
+.git
+.github
+.data
+.vercel
+artifacts
+test-results
+playwright-report
+.playwright-cli
+docs
+tests
+deploy
+Dockerfile
+.dockerignore
+docker-compose.yml
+playwright.config.ts
+vitest.config.mts
+eslint.config.mjs
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+README.md
+AGENTS.md
