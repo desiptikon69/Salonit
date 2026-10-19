@@ -15,3 +15,7 @@ npm-debug.log*
 .DS_Store
 .playwright-cli/
 artifacts/
+
+.vercel
+.env*
+!.env.example
